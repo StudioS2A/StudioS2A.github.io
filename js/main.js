@@ -332,6 +332,27 @@
     if (open) lock('menu'); else unlock('menu');
   };
   menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+
+  /* ---------- light / dark theme ---------- */
+  const root = document.documentElement, themeBtn = $('#themeBtn');
+  const mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  const saved = () => { try { return localStorage.getItem('s2a-theme'); } catch (e) { return null; } };
+  const applyTheme = (t) => {
+    root.setAttribute('data-theme', t);
+    themeBtn.setAttribute('aria-pressed', String(t === 'dark'));
+    themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  themeBtn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('s2a-theme', next); } catch (e) {}
+  });
+  /* follow the device setting live (e.g. phone switches to dark at night) until the visitor picks one */
+  if (mq) {
+    const follow = (e) => { if (!saved()) applyTheme(e.matches ? 'dark' : 'light'); };
+    if (mq.addEventListener) mq.addEventListener('change', follow); else if (mq.addListener) mq.addListener(follow);
+  }
   $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
 
   /* ---------- counters ---------- */
