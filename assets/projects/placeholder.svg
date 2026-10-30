@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 0H40M0 0V40" stroke="#2a2a28" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#141412"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <line x1="0" y1="0" x2="800" y2="600" stroke="#2a2a28" stroke-width="1"/>
+  <line x1="800" y1="0" x2="0" y2="600" stroke="#2a2a28" stroke-width="1"/>
+  <text x="400" y="290" text-anchor="middle" font-family="Jost, Arial, sans-serif" font-size="20" letter-spacing="4" fill="#6b6b66">IMAGE PENDING</text>
+  <text x="400" y="325" text-anchor="middle" font-family="Jost, Arial, sans-serif" font-size="13" letter-spacing="2" fill="#48483f">PROJECT PHOTOGRAPHY TO BE ADDED</text>
+</svg>

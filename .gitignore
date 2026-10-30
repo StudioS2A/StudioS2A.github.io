@@ -1,0 +1,9 @@
+# Keep private/working material out of the public repo
+.env
+_transfer/
+.claude/
+serve.ps1
+*.zip
+*.HEIC
+Thumbs.db
+desktop.ini
